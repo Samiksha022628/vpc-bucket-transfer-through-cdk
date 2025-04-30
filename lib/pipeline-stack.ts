@@ -13,7 +13,7 @@ export class PipelineStack extends cdk.Stack {
       pipelineName: 'MyCdkAppPipeline',
       synth: new ShellStep('SynthStep', {
         input: CodePipelineSource.gitHub('Samiksha022628/vpc-bucket-transfer-through-cdk', 'main', { //replace 'Samiksha022628' with your github username and 'vpc-bucket-transfer-through-cdk' with your github repo
-          authentication: cdk.SecretValue.secretsManager('GITHUB_TOKEN'), 
+          authentication: cdk.SecretValue.secretsManager('GITHUB_TOKEN'), //replace the 'GITHUB_TOKEN' with the aws secret name created to store the github token
         }),
         commands: [
           'npm ci',
